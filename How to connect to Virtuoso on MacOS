@@ -1,0 +1,4 @@
+# 맥에서 Virtuoso 접속을 위해 SSH 서버에 접속하는 방법
+1) Tunnelblick 로 VPN 연결한다.
+2) XQuartz 켜고 아래 명령어를 입력한다.
+ssh -X -Y 계정@IP

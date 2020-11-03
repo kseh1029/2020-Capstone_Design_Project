@@ -1,8 +1,4 @@
-# HW9
-
-9주차 : XOR Gate and Full Adder
-
-조 명 : 뚝딱뚝딱
+# 9주차 : XOR Gate and Full Adder
 
 **그림 1-1) Inverter 내부 회로**
 

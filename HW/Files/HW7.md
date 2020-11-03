@@ -1,12 +1,4 @@
-# HW7
-
-7주차 : Inverter
-
-조 명 : 뚝딱뚝딱
-
-2017117876
-
-김승현
+# 7주차 : Inverter
 
 Consider the following inverter circuit. The channel lengths of nmos1v and pmos1v devices are all 45 nm. For the capacitor, use the ‘cap’ device from ‘analogLib’.
 

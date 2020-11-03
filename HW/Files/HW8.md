@@ -1,12 +1,4 @@
-# HW8
-
-8주차 : NAND and NOR Gates
-
-조 명 : 뚝딱뚝딱
-
-2017117876
-
-김승현
+# 8주차 : NAND and NOR Gates
 
 1. Design the NAND gate that is illustrated in Fig. 1 so that the worst-case delay is less than 15 ps when a load capacitance of 2 fF is connected t the output.
 

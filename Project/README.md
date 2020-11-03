@@ -1,12 +1,4 @@
-# Project
-
-**Design Project**
-
-**Spring, 2020**
-
-**ITEC401011**
-
-**Professor: Jae Hoon Shim**
+# 1학기 Design Project
 
 1. **Abstract**
 

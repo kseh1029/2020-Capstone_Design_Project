@@ -1,14 +1,20 @@
-# 4주차 : 6-T SRAM의 구조 및 동작 원리
+# HW4
+
+4주차 : 6-T SRAM의 구조 및 동작 원리
+
+조 명 : 뚝딱뚝딱
+
+2017117876
+
+김승현
 
 SRAM은 두 개의 안정된 상태를 갖는 쌍안정 래치 회로의 각 상태에서 1과 0을 할당하여 저장하는 메모리이다.
 
 쌍안정 회로는 전원이 유지되고 정보를 바꾸어 쓰지 않는 한, 상태의 변화가 없어 정보를 무한히 유지하므로 Static Random Access Momory (SRAM) 이라고 한다. DRAM 과 비교할 때 리프래시 동작이 필요 없으므로 사용이 간편하고 속도가 빠르다. 그러나 SRAM은 단위 셀이 6개의 트랜지스터로 구성되어 DRAM에 비해 집적도가 1/4 정도로 떨어지며, 가격이 비싸다.
 
-① SRAM의 구조
+**① SRAM의 구조**
 
-![https://blog.kakaocdn.net/dn/d5fdtT/btqMtzvrtU7/f0Y5Nym2BLxWjpYcYEV4Z1/img.png](https://blog.kakaocdn.net/dn/d5fdtT/btqMtzvrtU7/f0Y5Nym2BLxWjpYcYEV4Z1/img.png)
-
-왼쪽 그림은 4 뱅크로 구성된 SRAM의 내부 구조이다.
+![HW4%204c6939101d6f48a4a07832f71de8edef/image7.bmp](HW4%204c6939101d6f48a4a07832f71de8edef/image7.bmp)
 
 데이터 저장공간인 메모리 셀 배열,
 
@@ -18,7 +24,7 @@ SRAM은 두 개의 안정된 상태를 갖는 쌍안정 래치 회로의 각 상
 
 왼쪽 그림에서는 4개의 뱅크로 분할이 되어있다.
 
-SRAM의 읽기 동작은 =0 일 때 칩 선택신호가 활성화 되고, 쓰기 활성화 신호 =1에 의해 읽기모드가 설정되면 출력 활성화 신호 =0에 의해 출력이 데이터 I/O 포트로 연결된다.
+SRAM의 읽기 동작은 $\overline{\text{CS}}$=0 일 때 칩 선택신호가 활성화 되고, 쓰기 활성화 신호 $\overline{\text{WE}}$=1에 의해 읽기모드가 설정되면 출력 활성화 신호 $\overline{\text{OE}}$=0에 의해 출력이 데이터 I/O 포트로 연결된다.
 
 주소 포트로 입력된 행주소는 행 디코더에 의해 워드라인 신호로 변환되어 특정 워드라인이 선택된다.
 
@@ -26,79 +32,77 @@ SRAM의 읽기 동작은 =0 일 때 칩 선택신호가 활성화 되고, 쓰�
 
 메모리 셀에 연결된 비트라인과 반전 비트라인의 미세한 신호변화는 감지증폭기에 의해 증폭되고, 출력 버퍼를 통해 외부로 출력된다.
 
-SRAM의 쓰기 동작은 =0 일 때 칩 선택신호가 활성화 되고, 쓰기 활성화 신호 =0에 의해 쓰기모드가 설정되면 출력 활성화 신호 =1에 의해 I/O 포트의 데이터가 쓰기 구동회로에 연결된다.
+SRAM의 쓰기 동작은 $\overline{\text{CS}}$=0 일 때 칩 선택신호가 활성화 되고, 쓰기 활성화 신호 $\overline{\text{WE}}$=0에 의해 쓰기모드가 설정되면 출력 활성화 신호 $\overline{\text{OE}}$=1에 의해 I/O 포트의 데이터가 쓰기 구동회로에 연결된다.
 
 어드레스 포트로 입력된 행주소는 행 디코더에 의해 워드라인 신호로 변환되어 특정 워드라인이 선택된다.
 
-![https://blog.kakaocdn.net/dn/cOa2IX/btqMwn1Ra1U/tiaNR50gynPuHAd857OYHk/img.png](https://blog.kakaocdn.net/dn/cOa2IX/btqMwn1Ra1U/tiaNR50gynPuHAd857OYHk/img.png)
+![HW4%204c6939101d6f48a4a07832f71de8edef/image8.bmp](HW4%204c6939101d6f48a4a07832f71de8edef/image8.bmp)
 
-워드라인에 연결된 셀들 중 열 디코더 출력에 의해 저장될 셀의 비트라인이 선택되고, 쓰기 구동회로의 데이터가 해당 셀의 과 에 인가되어 쓰기 동작이 이루어진다.
+BL과 $\overline{\text{BL}}$에 인가되어 쓰기 동작이 이루어진다.
 
 SRAM을 구성하는 칼럼회로는 기본적으로 왼쪽 그림과 유사한 구조를 갖는다.
 
-메모리 셀들이 비트라인 과 반전 비트라인 에 연결되어 있다.
+메모리 셀들이 비트라인 BL과 반전 비트라인 $\overline{\text{BL}}$에 연결되어 있다.
 
-프리차지 회로는 읽기와 쓰기 동작을 위해 비트라인과 반전 비트라인을 로 프리차지 시키는 역할을 한다.
+프리차지 회로는 읽기와 쓰기 동작을 위해 비트라인과 반전 비트라인을 *V*DD 로 프리차지 시키는 역할을 한다.
 
-감지증폭기는 과 의 신호 변화를 감지하고 증폭해서 출력으로 보내는 역할을 한다.
+감지증폭기는 BL과 $\overline{\text{BL}}$의 신호 변화를 감지하고 증폭해서 출력으로 보내는 역할을 한다.
 
-쓰기 구동회로를 통해 입력되는 데이터는 교차 결합된 감지증폭기를 통해 과 에 인가된다.
+쓰기 구동회로를 통해 입력되는 데이터는 교차 결합된 감지증폭기를 통해 BL과 $\overline{\text{BL}}$에 인가된다.
 
-![https://blog.kakaocdn.net/dn/cUsSK7/btqMpKLHdNL/PoI9aYDg5iYE514Fj9Ggv0/img.png](https://blog.kakaocdn.net/dn/cUsSK7/btqMpKLHdNL/PoI9aYDg5iYE514Fj9Ggv0/img.png)
+![HW4%204c6939101d6f48a4a07832f71de8edef/image9.bmp](HW4%204c6939101d6f48a4a07832f71de8edef/image9.bmp)
 
 왼쪽 그림은 SRAM의 읽기 동작을 위한 칼럼 회로이다.
 
 다수의 셀들이 비트라인과 반전 비트라인에 연결되어 있다.
 
-pMOSFET 는 클럭신호 에 의해 비트라인과 반전 비트라인을 로 프리차지 시키는 역할을 한다.
+pMOSFET *P*1, *P*2는 클럭신호 $\overline{\Phi}$ 에 의해 비트라인과 반전 비트라인을 *V*DD 로 프리차지 시키는 역할을 한다.
 
-=0 에 의해 과 이 프리차지 되고 주소 디코딩에 의해 워드라인 신호 WL=1 이 인가되면, 액세스 트랜지스터 가 도통되어 메모리 셀이 선택된다.
+$\overline{\Phi}$=0 에 의해 BL과 $\overline{\text{BL}}$이 프리차지 되고 주소 디코딩에 의해 워드라인 신호 WL=1 이 인가되면, 액세스 트랜지스터 *N*3, *N*4가 도통되어 메모리 셀이 선택된다.
 
-셀 내부의 에 저장된 전압이 액세스 트랜지스터를 통해 과 에 나타나고 과 의 신호 변화는 감지증폭기를 통해 증폭되어 외부로 출력된다.
+셀 내부의 $Q,\,\overline{Q}$ 에 저장된 전압이 액세스 트랜지스터를 통해 BL과 $\overline{\text{BL}}$에 나타나고 BL과 $\overline{\text{BL}}$의 신호 변화는 감지증폭기를 통해 증폭되어 외부로 출력된다.
 
-![https://blog.kakaocdn.net/dn/cG6OkK/btqMtypLwlK/4RfRMHnVTb4hN9kbYTesak/img.png](https://blog.kakaocdn.net/dn/cG6OkK/btqMtypLwlK/4RfRMHnVTb4hN9kbYTesak/img.png)
+![HW4%204c6939101d6f48a4a07832f71de8edef/image10.bmp](HW4%204c6939101d6f48a4a07832f71de8edef/image10.bmp)
 
 읽기 동작을 위한 타이밍도는 왼쪽그림과 같다.
 
-(address access time) : 주소가 인가된 시점으로부터 유효한 데이터가 출력되기 까지 소요시간
+*t*AA (address access time) : 주소가 인가된 시점으로부터 유효한 데이터가 출력되기 까지 소요시간
 
-(chip select to output) : 신호가 인가된 시점으로부터 유효한 데이터가 출력되기 까지 소요시간
+*t*CO (chip select to output) : $\overline{\text{CS}}$ 신호가 인가된 시점으로부터 유효한 데이터가 출력되기 까지 소요시간
 
-(output enable to valid output) : 신호가 인가된 시점으로부터 유효한 데이터가 출력되기 까지 소요시간
+*t*OE (output enable to valid output) : $\overline{\text{OE}}$ 신호가 인가된 시점으로부터 유효한 데이터가 출력되기 까지 소요시간
 
-(output disable to high-Z) : =1 로 비활성화된 시점으로부터 출력이 고임피던스 상태가 되기 까지의 소요시간
+*t*OHZ (output disable to high-Z) : $\overline{\text{OE}}$=1 로 비활성화된 시점으로부터 출력이 고임피던스 상태가 되기 까지의 소요시간
 
-(output hold from address change) : 새로운 주소로 변경된 시점으로부터 이전 주소의 출력 데이터가 유지되는 시간
+*t*OH (output hold from address change) : 새로운 주소로 변경된 시점으로부터 이전 주소의 출력 데이터가 유지되는 시간
 
-그 외에 (raed cycle time), (chip select to low-Z output), (output enable to low-Z output),
+그 외에 *t*RC (raed cycle time), *t*LZ (chip select to low-Z output), *t*OLZ (output enable to low-Z output),
 
-(chip disable to high-Z output) 이 있다.
+*t*HZ (chip disable to high-Z output) 이 있다.
 
-![https://blog.kakaocdn.net/dn/c9voxw/btqMqcVAa56/4f0NqHSVoRuHGbRyimp6uK/img.png](https://blog.kakaocdn.net/dn/c9voxw/btqMqcVAa56/4f0NqHSVoRuHGbRyimp6uK/img.png)
+![HW4%204c6939101d6f48a4a07832f71de8edef/image11.bmp](HW4%204c6939101d6f48a4a07832f71de8edef/image11.bmp)
 
 왼쪽 그림은 SRAM의 쓰기 동작을 위한 칼럼 회로이다.
 
-클럭신호 =0에 의해 비트라인과 반전 비트라인이 로 프리차지된 상태에서 write=1 에 의해 데이터가 과 에 인가된다.
+클럭신호 $\overline{\Phi}$=0에 의해 비트라인과 반전 비트라인이 *V*DD 로 프리차지된 상태에서 write=1 에 의해 데이터가 BL과 $\overline{\text{BL}}$에 인가된다.
 
-주소 디코딩에 의해 워드라인 신호 =1 이 인가되면 액세스 트랜지스터 가 도통되어 메모리 셀이 선택되고, 과 의 값이 메모리 셀에 저장된다.
+주소 디코딩에 의해 워드라인 신호 WL=1 이 인가되면 액세스 트랜지스터 *N*3, *N*4 가 도통되어 메모리 셀이 선택되고, BL과 $\overline{\text{BL}}$의 값이 메모리 셀에 저장된다.
 
-![https://blog.kakaocdn.net/dn/cyfEot/btqMpLDSUi3/A06ndtKZRkblr99fwsRRKk/img.png](https://blog.kakaocdn.net/dn/cyfEot/btqMpLDSUi3/A06ndtKZRkblr99fwsRRKk/img.png)
+![HW4%204c6939101d6f48a4a07832f71de8edef/image12.bmp](HW4%204c6939101d6f48a4a07832f71de8edef/image12.bmp)
 
-쓰기 동작을 위한 신호 타이밍도는 왼쪽 그림과 같다.
+*t*AS (address setup time) : $\overline{\text{WE}}$=0 이 인가되지 이전에 주소가 안정된 값을 유지해야 하는 준비시간
 
-(address setup time) : =0 이 인가되지 이전에 주소가 안정된 값을 유지해야 하는 준비시간
+*t*AW (address valid to end of write) : $\overline{\text{WE}}$=1 에 의해 쓰기 동작이 완료되는 시점까지 유효한 주소값이 유지되어야 하는 시간
 
-(address valid to end of write) : =1 에 의해 쓰기 동작이 완료되는 시점까지 유효한 주소값이 유지되어야 하는 시간
+*t*DW (data to write time overlap) : $\overline{\text{WE}}$=1 에 의해 쓰기 동작이 완료되기 이전에 데이터가 안정된 값을 유지해야 하는 준비시간
 
-(data to write time overlap) : =1 에 의해 쓰기 동작이 완료되기 이전에 데이터가 안정된 값을 유지해야 하는 준비시간
+*t*DH (data hold from write time) : $\overline{\text{WE}}$=1 에 의해 쓰기 동작이 완료된 이후에 데이터가 안정된 값을 유지해야하는 유지시간
 
-(data hold from write time) : =1 에 의해 쓰기 동작이 완료된 이후에 데이터가 안정된 값을 유지해야하는 유지시간
+그 외에 *t*WC (write cycle time), *t*CW (chip select to end of write), *tW* *P* (write pulse width), *t*WR (write recovery time), *t*WHZ (write to output high-Z), *t*OH (end write to output low-Z) 가 있다.
 
-그 외에 (write cycle time), (chip select to end of write), (write pulse width), (write recovery time), (write to output high-Z), (end write to output low-Z) 가 있다.
+**② SRAM 셀 회로**
 
-② SRAM 셀 회로
-
-![https://blog.kakaocdn.net/dn/ReelL/btqMuPLwrsH/FKYUXkmiM7rKej9yCwE881/img.png](https://blog.kakaocdn.net/dn/ReelL/btqMuPLwrsH/FKYUXkmiM7rKej9yCwE881/img.png)
+![HW4%204c6939101d6f48a4a07832f71de8edef/image13.bmp](HW4%204c6939101d6f48a4a07832f71de8edef/image13.bmp)
 
 SRAM 셀은 쌍안정 래치회로의 각 상태에 0과 1을 할당하여 정보를 저장하며, 래치회로에 따라 여러 가지 형태로 구현될 수 있다.
 
@@ -108,68 +112,64 @@ SRAM 셀은 쌍안정 래치회로의 각 상태에 0과 1을 할당하여 정�
 
 교차결합된 인버터는 래치회로를 구성하여 Positive feedback 작용에 의해 데이터를 저장한다.
 
-워드라인은 액세스 트랜지스터의 게이트에 연결되며, 워드라인의 신호가 =1 일 때, 메모리 셀이 선택되어 값의 읽기 또는 쓰기 동작이 이루어진다.
+워드라인은 액세스 트랜지스터의 게이트에 연결되며, 워드라인의 신호가 WL=1 일 때, 메모리 셀이 선택되어 값의 읽기 또는 쓰기 동작이 이루어진다.
 
-두 개의 비트라인 과 은 메모리 셀과 외부 사이의 데이터를 전달하는 통로 역할을 한다.
+두 개의 비트라인 BL과 $\overline{\text{BL}}$은 메모리 셀과 외부 사이의 데이터를 전달하는 통로 역할을 한다.
 
 6-T SRAM 셀은 값을 읽고 쓰는 스위치 동작 시에만 전력소모가 일어나며 leakage power 이외에는 정적 전력소모가 없다는 것이 장점이지만, 4-T SRAM 회로에 비해 셀 면적이 크다는 단점을 가진다.
 
-③ SRAM 셀의 읽기와 쓰기
+**③ SRAM 셀의 읽기와 쓰기**
 
-![https://blog.kakaocdn.net/dn/Gelam/btqMwmID5Yv/hm54yCVHv2t0ZgSUmV6PcK/img.png](https://blog.kakaocdn.net/dn/Gelam/btqMwmID5Yv/hm54yCVHv2t0ZgSUmV6PcK/img.png)
-
-1) 6-T SRAM 셀 회로의 읽기
+![HW4%204c6939101d6f48a4a07832f71de8edef/image14.bmp](HW4%204c6939101d6f48a4a07832f71de8edef/image14.bmp)
 
 왼쪽 그림은 메모리 셀에 데이터 0이 저장되어 있는 경우의 읽기 동작을 나타낸 그림이다.
 
-셀 내부의 두 CMOS 인버터는 교차결합되어 있으므로 과 는 도통상태이고, 와 은 개방상태를 유지하고 있다.
+셀 내부의 두 CMOS 인버터는 교차결합되어 있으므로 *N*1 과 *P*2 는 도통상태이고, *N*2 와 *P*1은 개방상태를 유지하고 있다.
 
-따라서 =0, =1을 유지하고 있다.
+따라서 *Q*=0, $\overline{Q}$=1을 유지하고 있다.
 
-비트라인 과 반전 비트라인 을 1로 프리차지 시킨 후, 읽기 동작을 통해 워드라인 =1 로 활성화 시키면 과 에 연결된 액세스 트랜지스터 가 도통된다.
+비트라인 BL과 반전 비트라인 $\overline{\text{BL}}$을 1로 프리차지 시킨 후, 읽기 동작을 통해 워드라인 WL=1 로 활성화 시키면 BL과 $\overline{\text{BL}}$에 연결된 액세스 트랜지스터 *N*3, *N*4 가 도통된다.
 
-이때 비트라인 의 전압은 도통된 을 통해 0V 로 감소하며, 동시에 노드 의 전압은 프리차지된 비트라인 전압에 의해 상승한다.
+이때 비트라인 BL의 전압은 도통된 *N*1 을 통해 0V 로 감소하며, 동시에 노드 *Q*의 전압은 프리차지된 비트라인 전압에 의해 상승한다.
 
-노드 의 전압은 도통된 에 의해 낮은 전압을 유지하고 있지만, 도통된 를 통해 유입되는 전류에 의해 상승한다.
+노드 *Q*의 전압은 도통된 *N*1 에 의해 낮은 전압을 유지하고 있지만, 도통된 *N*3 를 통해 유입되는 전류에 의해 상승한다.
 
-읽기 동작이 올바로 이루어지기 위해서는 노드 의 전압이 비트라인의 전압의 영향을 적게 받아야 하므로, 트랜지스터 의 구동력이 액세스 트랜지스터 보다 크게 설계되어야 한다. 이 조건을 읽기 안정화 조건이라고 한다.
+읽기 동작이 올바로 이루어지기 위해서는 노드 *Q*의 전압이 비트라인의 전압의 영향을 적게 받아야 하므로, 트랜지스터 *N*1의 구동력이 액세스 트랜지스터 *N*3 보다 크게 설계되어야 한다. 이 조건을 읽기 안정화 조건이라고 한다.
 
-읽기 안정화 조건을 만족하면, 프리차지된 비트라인은 와 을 통해 접지로 방전되어 0이 되고, 반전 비트라인은 1을 유지하여 저장된 값 0이 비트라인에 읽히게 된다.
+읽기 안정화 조건을 만족하면, 프리차지된 비트라인은 *N*3 와 *N*1 을 통해 접지로 방전되어 0이 되고, 반전 비트라인은 1을 유지하여 저장된 값 0이 비트라인에 읽히게 된다.
 
-동일한 원리에 의해 메로리 셀에 저장된 1을 읽기 위해서는 트랜지스터 의 구동력이 액세스 트랜지스터 보다 크게 설계되어야 한다.
+동일한 원리에 의해 메로리 셀에 저장된 1을 읽기 위해서는 트랜지스터 *N*2 의 구동력이 액세스 트랜지스터 *N*4 보다 크게 설계되어야 한다.
 
-SRAM 셀의 읽기 안정화 조건을 만족하기 위해서는 트랜지스터의 채널폭이 과 를 만족하도록 설계되어야 한다.
+SRAM 셀의 읽기 안정화 조건을 만족하기 위해서는 트랜지스터의 채널폭이 *WN*3 ⟨*WN*1 과 *WN*4⟨*WN*2 를 만족하도록 설계되어야 한다.
 
-![https://blog.kakaocdn.net/dn/oBMgz/btqMqCGqifh/GpJMygD9BtLKRIq43jGoeK/img.png](https://blog.kakaocdn.net/dn/oBMgz/btqMqCGqifh/GpJMygD9BtLKRIq43jGoeK/img.png)
+![HW4%204c6939101d6f48a4a07832f71de8edef/image15.bmp](HW4%204c6939101d6f48a4a07832f71de8edef/image15.bmp)
 
-2) 6-T SRAM 셀 회로의 쓰기
+**2) 6-T SRAM 셀 회로의 쓰기**
 
 왼쪽 그림은 메모리 셀에 데이터 0이 저장되어 있는 상태에서 데이터 1의 쓰기 동작을 나타낸 그림이다.
 
-비트라인 비트라인 과 반전 비트라인 을 로 프리차지 시킨 후, =0으로 만들어 저장될 데이터 1을 과 에
+비트라인 비트라인 BL과 반전 비트라인 $\overline{\text{BL}}$을 *V*DD 로 프리차지 시킨 후, $\overline{\text{BL}}$=0으로 만들어 저장될 데이터 1을 BL과 $\overline{\text{BL}}$에
 
 인가한다.
 
-쓰기동작을 위해 워드라인 =1로 활성화시키면, 과 에 연결된 액세스 트랜지스터 가 도통된다.
+쓰기동작을 위해 워드라인 WL=1로 활성화시키면, BL과 $\overline{\text{BL}}$에 연결된 액세스 트랜지스터 *N*3, *N*4 가 도통된다.
 
-메모리 셀의 읽기 동작을 위한 읽기 안정화 조건에 의해 액세스 트랜지스터 의 구동력이 약하게 만들어지므로
+메모리 셀의 읽기 동작을 위한 읽기 안정화 조건에 의해 액세스 트랜지스터 *N*3 의 구동력이 약하게 만들어지므로
 
-에 실린 1이 노드 를 1로 만드는 데 시간이 걸리게 된다. 따라서 쓰기 동작은 를 통해 가 0이 되어야 하며, 이를 위해 액세스 트랜지스터 의 구동력이 보다 크게 설계되어야 한다. 이를 쓰기 가능 조건이라고 한다.
+BL에 실린 1이 노드 *Q*를 1로 만드는 데 시간이 걸리게 된다. 따라서 쓰기 동작은 *N*4를 통해 $\overline{Q}$가 0이 되어야 하며, 이를 위해 액세스 트랜지스터 *N*4 의 구동력이 *P*2 보다 크게 설계되어야 한다. 이를 쓰기 가능 조건이라고 한다.
 
-가 0이 되면, 이에 의해 이 도통되어 =1이 되고, 교차 결합된 인버터에 1이 저장된다.
+$\overline{Q}$ 가 0이 되면, 이에 의해 *P*1 이 도통되어 *Q*=1이 되고, 교차 결합된 인버터에 1이 저장된다.
 
-동일한 원리에 의해 1이 저장된 셀에 0을 쓰기 위해서는 액세스 트랜지스터 의 구동력이 보다 크게 설계되어야 한다.
+동일한 원리에 의해 1이 저장된 셀에 0을 쓰기 위해서는 액세스 트랜지스터 *N*3 의 구동력이 *P*1 보다 크게 설계되어야 한다.
 
-SRAM 셀의 쓰기 가능 조건을 만족하기 위해서는 트랜지스터 채널폭이 와 를 만족하도록 설계되어야 한다.
+SRAM 셀의 쓰기 가능 조건을 만족하기 위해서는 트랜지스터 채널폭이 *WP*1⟨*WN*3 와 *WP*2⟨*WN*4 를 만족하도록 설계되어야 한다.
 
-3) SRAM 셀의 설계 조건
+**3) SRAM 셀의 설계 조건**
 
-![https://blog.kakaocdn.net/dn/4iOp7/btqMqeFMYxL/qLRqVeakpLcFJdWKbFClRk/img.png](https://blog.kakaocdn.net/dn/4iOp7/btqMqeFMYxL/qLRqVeakpLcFJdWKbFClRk/img.png)
+![HW4%204c6939101d6f48a4a07832f71de8edef/image16.bmp](HW4%204c6939101d6f48a4a07832f71de8edef/image16.bmp)
 
-SRAM 셀의 읽기와 쓰기 동작이 올바로 수행되기 위해서는 트랜지스터들의 상대적인 구동력이 왼쪽 그림과 같이 설계되어야 한다.
+인버터의 nMOSFET *N*1, *N*2 는 가장 큰 구동력을 가져야 한다.
 
-인버터의 nMOSFET , 는 가장 큰 구동력을 가져야 한다.
+액세스 트랜지스터 *N*3, *N*4 는 중간 정도의 구동력을 가져야 한다.
 
-액세스 트랜지스터 , 는 중간 정도의 구동력을 가져야 한다.
-
-인버터의 pMOSFET , 는 가장 작은 구동력을 가져야 한다.
+인버터의 pMOSFET *P*1, *P*2 는 가장 작은 구동력을 가져야 한다.

@@ -1,0 +1,4 @@
+﻿Variables Name,Classification,Functions
+A[0],Page select,select left page or right page
+column_passp,Pass TR,Column Decoder BL / BLB의 pass speed
+column_passn,,

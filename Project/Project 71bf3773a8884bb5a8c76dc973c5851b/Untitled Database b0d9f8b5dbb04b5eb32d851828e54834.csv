@@ -1,0 +1,4 @@
+﻿Variables Name,Classification,Functions
+PRE,Control Signal,Pre-charge circuit control
+pre_pass,Channel Width,Pre-charging speed
+pre_balance,Channel Width,BL / BLB balanced charging

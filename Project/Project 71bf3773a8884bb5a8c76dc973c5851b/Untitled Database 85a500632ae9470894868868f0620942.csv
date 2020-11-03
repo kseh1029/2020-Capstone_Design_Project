@@ -1,0 +1,6 @@
+﻿Variables Name,Classification,Functions
+WEN,Control signal,Write Driver ON / OFF
+RWSELECT,,Select Read operation or Write operation
+WDATA,data input,write data input
+wd_passtop,WDATA set,"BL, BLB discharging speed"
+wd_passbottom,,

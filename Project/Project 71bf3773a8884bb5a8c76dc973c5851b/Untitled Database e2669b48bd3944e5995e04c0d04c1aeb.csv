@@ -1,0 +1,8 @@
+﻿Variables Name,Classification,Functions
+SAE,Control signal,Sense Amplifier ON / OFF
+RWSELECT,,Select Read operation or Write operation
+sa_vddpass,VDD path,SA cross coupled inverter VDD charging speed
+sa_gndpass,GND path,SA cross coupled inverter GND discharging speed
+sa_inv,inverter,SA cross coupled inverter TR Size
+sa_passp,CMOS PASS TR,"SA BL, BLB charge pass speed"
+sa_passn,,

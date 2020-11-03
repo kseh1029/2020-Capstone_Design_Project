@@ -1,0 +1,5 @@
+﻿Variables Name,Classification,Functions
+EN,Control signal,Row Decoder ON / OFF
+A[3],Address signal,Address line
+A[2],,
+A[1],,

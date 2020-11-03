@@ -1,0 +1,9 @@
+﻿Variables Name,Variables value,Width / Length
+sa_inv,1,360nm / 45nm
+VTC Ratio,1.2,
+P MOSFET,0,144nm / 45nm
+N MOSFET,0,120nm / 45nm
+sa_passp,4,480nm / 45nm
+sa_passn,4,480nm / 45nm
+sa_vddpass,4,480nm / 45nm
+sa_gndpass,7,840nm / 45nm

@@ -1,0 +1,4 @@
+﻿Variables Name,Classification,Functions
+cell_access,Access TR,Access TR Channel width
+PR,PFET,Write ability
+CR,NFET,Read stability

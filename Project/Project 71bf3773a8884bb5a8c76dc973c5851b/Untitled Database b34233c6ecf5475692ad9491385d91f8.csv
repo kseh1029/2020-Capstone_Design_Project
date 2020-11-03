@@ -1,0 +1,8 @@
+﻿Sub-Blocks,PFET,NFET,cmos pass tr,inv,2-NAND,2-NOR,3-NOR,Total,Property
+Pre-Charge,8,3,0,0,0,0,0,0,24
+Row Decoder,1,0,0,0,3,4,0,8,70
+Column Decode,1,0,0,16,1,0,0,0,34
+SRAM CELL,64,2,4,0,0,0,0,0,448
+Sense Amplifer,4,2,2,4,2,1,0,0,80
+Write Driver,4,0,4,0,2,0,1,0,48
+,704,0,0,0,0,0,0,0,0

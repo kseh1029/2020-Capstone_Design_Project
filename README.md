@@ -1,6 +1,8 @@
 # 2020년도 1~2학기 : 종합설계프로젝트 (ITEC401011,ITEC402011)
 
-* ## [과제 및 프로젝트 보기](HW/README.md)
+* ## [과제 솔루션 보기](HW/README.md)
+
+* ## [1학기 프로젝트 결과 보기](Project/README.md)
 
 * ## Repository 에 대한 설명
 
